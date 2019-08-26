@@ -38,6 +38,13 @@ public $errorStatus = 401;
                
         return response()->json(['success'=>$request->all()], $this-> successStatus); 
     } 
+
+    public function getVideo(Request $request) 
+    { 
+        $result = VideoList::get();
+        //dd($result);
+        return response()->json(['res' => $result]); 
+    }
 }
 
 
