@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
     Route::post('insertCategory', 'API\VideoController@insertCategory');
     Route::post('insertVideo', 'API\VideoController@insertVideo');
-   // Route::post('getName', 'API\MyController@get');
-   // Route::post('insert', 'API\MyController@insert');
+
+   Route::post('getVideo', 'API\MyController@get');
+   Route::post('insertVideoTemp', 'API\MyController@insert');
 });
