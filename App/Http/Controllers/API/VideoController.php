@@ -44,11 +44,31 @@ public $errorStatus = 401;
         }
         $input = $request->all(); 
         $video = Video::create($input);
-        $categories= Category::all();
-        //dd($video);
-        $video->categories()->attach($categories);
-
-               
+        
+        $categories= $request->input('category');
+        $categories= json_decode($categories);   
+        
+        for($i = 0; $i < count($categories); $i++){
+            
+            $cat = DB::table('categories')
+                     ->select('id')
+                     ->where('catName', '=', $categories[$i])
+                     ->get();
+                
+            // echo count($cat);
+            // exit;
+            $catId=0;
+            if(count($cat)){
+                $catId=$cat[0]->id;
+            }
+            else{
+                $value = ['catName' => $categories[$i]];
+                $catId=  Category::create($value)->id;
+            }
+            
+            DB::table('category_video')->insert(['category_id' => $catId, 'video_id' => $video->id]);
+        }        
+        
         return response()->json(['success'=>$request->all()], $this-> successStatus); 
     } 
 
