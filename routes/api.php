@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 
+Route::get('test', 'API\MyController@get');
+
 
 
 Route::group(['middleware' => 'auth:api'], function(){
@@ -25,4 +27,5 @@ Route::group(['middleware' => 'auth:api'], function(){
 
    Route::post('getVideo', 'API\MyController@get');
    Route::post('insertVideoTemp', 'API\MyController@insert');
+   Route::post('insertVideo', 'API\VideoController@insertVideo');
 });

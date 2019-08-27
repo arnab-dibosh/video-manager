@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use App\Category; 
+use App\Video;
 use Illuminate\Support\Facades\Auth; 
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -12,8 +13,6 @@ class VideoController extends Controller
 {
 public $successStatus = 200;
 public $errorStatus = 401;
-
-    
 
     public function insertCategory(Request $request) 
     { 
@@ -34,7 +33,21 @@ public $errorStatus = 401;
 
     public function insertVideo(Request $request) 
     { 
+         $validator = Validator::make($request->all(), [ 
+            
+            'title' => 'required', 
+            'link' => 'required', 
+        ]);
         
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
+        $input = $request->all(); 
+        $video = Video::create($input);
+        $categories= Category::all();
+        //dd($video);
+        $video->categories()->attach($categories);
+
                
         return response()->json(['success'=>$request->all()], $this-> successStatus); 
     } 

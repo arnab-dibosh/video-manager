@@ -11,12 +11,20 @@ class MyController extends Controller
 {
 public $successStatus = 200;
 
+//Test purpose
     public function get() 
     { 
         $result = VideoList::get();
         //dd($result);
         return response()->json(['res' => $result]); 
     } 
+
+    //  public function get() 
+    // { 
+    //     $result = VideoList::get();
+    //     //dd($result);
+    //     return response()->json(['res' => $result]); 
+    // } 
 
     public function insert(Request $request) 
     { 
