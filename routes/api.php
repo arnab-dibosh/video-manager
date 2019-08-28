@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 
-Route::get('test', 'API\MyController@get');
+Route::get('getCategories', 'API\VideoController@getCategories');
 
 
 
@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('insertCategory', 'API\VideoController@insertCategory');
     Route::post('insertVideo', 'API\VideoController@insertVideo');
 
-   Route::post('getVideo', 'API\MyController@get');
+   Route::post('getVideo', 'API\VideoController@getVideo');
    Route::post('insertVideoTemp', 'API\MyController@insert');
    Route::post('insertVideo', 'API\VideoController@insertVideo');
 });

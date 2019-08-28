@@ -14,21 +14,11 @@ class VideoController extends Controller
 public $successStatus = 200;
 public $errorStatus = 401;
 
-    public function insertCategory(Request $request) 
+    public function getCategories(Request $request) 
     { 
-        $validator = Validator::make($request->all(), [ 
-            
-            'catName' => 'required',
-        ]);
-        
-        if ($validator->fails()) { 
-                    return response()->json(['error'=>$validator->errors()], $this->errorStatus);            
-                }
-        
-         $input = $request->all(); 
-        $category = Category::create($input);
-               
-        return response()->json(['success'=>'insert successfull'], $this-> successStatus); 
+        $cats = Category::get();
+                      
+        return response()->json(['categories' => $cats]); 
     } 
 
     public function insertVideo(Request $request) 
@@ -40,7 +30,7 @@ public $errorStatus = 401;
         ]);
         
         if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json(['error'=>$validator->errors()]);            
         }
         $input = $request->all(); 
         $video = Video::create($input);
@@ -69,15 +59,46 @@ public $errorStatus = 401;
             DB::table('category_video')->insert(['category_id' => $catId, 'video_id' => $video->id]);
         }        
         
-        return response()->json(['success'=>$request->all()], $this-> successStatus); 
+        return response()->json(['success'=>'Video Inserted Successfully'], $this-> successStatus); 
     } 
 
     public function getVideo(Request $request) 
     { 
-        $result = VideoList::get();
-        //dd($result);
-        return response()->json(['res' => $result]); 
+        $in= $request->input('category'); 
+        $in=json_decode($in);        
+       
+       $videos= DB::select("SELECT distinct v.title, v.link FROM `category_video` cv 
+       INNER JOIN `videos` v on v.id = cv. video_id INNER JOIN `categories` c on c.id = cv.category_id 
+       WHERE c.catName in ($in)");        
+        
+        return response()->json(['videos' => $videos]); 
     }
+
+    // public function getVideo(Request $request) 
+    // { 
+    //     $names= $request->input('category');  
+    //     // echo $names;
+    //     // exit;      
+    //     $names= json_decode($names); 
+    //     $cats = Category::whereIn('catName', $names)->get();
+
+    //     $videos=[];
+    //     for($i = 0; $i < count($cats); $i++){
+
+    //         $temp=  $cats[$i]->videos()->get();
+    //         if(count($temp)) {
+    //             for($j = 0; $j < count($temp); $j++){
+    //                 array_push($videos, $temp[$j]);
+    //             }   
+    //         }
+          
+    //      }
+                  
+    //     // dd($videos);
+    //     // exit;
+        
+    //     return response()->json(['videos' => $videos]); 
+    // }
 }
 
 
