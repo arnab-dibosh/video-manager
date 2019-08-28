@@ -74,31 +74,6 @@ public $errorStatus = 401;
         return response()->json(['videos' => $videos]); 
     }
 
-    // public function getVideo(Request $request) 
-    // { 
-    //     $names= $request->input('category');  
-    //     // echo $names;
-    //     // exit;      
-    //     $names= json_decode($names); 
-    //     $cats = Category::whereIn('catName', $names)->get();
-
-    //     $videos=[];
-    //     for($i = 0; $i < count($cats); $i++){
-
-    //         $temp=  $cats[$i]->videos()->get();
-    //         if(count($temp)) {
-    //             for($j = 0; $j < count($temp); $j++){
-    //                 array_push($videos, $temp[$j]);
-    //             }   
-    //         }
-          
-    //      }
-                  
-    //     // dd($videos);
-    //     // exit;
-        
-    //     return response()->json(['videos' => $videos]); 
-    // }
 }
 
 
