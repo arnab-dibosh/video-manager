@@ -25,7 +25,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('insertCategory', 'API\VideoController@insertCategory');
     Route::post('insertVideo', 'API\VideoController@insertVideo');
 
-   Route::post('getVideo', 'API\VideoController@getVideo');
-   Route::post('insertVideoTemp', 'API\MyController@insert');
+   Route::post('getVideoByCategory', 'API\VideoController@getVideoByCategory');
+   Route::post('getAllVideo', 'API\VideoController@getAllVideo');
    Route::post('insertVideo', 'API\VideoController@insertVideo');
+   Route::post('updateVideo', 'API\VideoController@updateVideo');
+   Route::post('deleteVideo', 'API\VideoController@deleteVideo');
 });

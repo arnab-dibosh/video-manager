@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2019 at 12:29 PM
+-- Generation Time: Sep 01, 2019 at 12:02 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -46,7 +46,16 @@ INSERT INTO `categories` (`id`, `catName`, `created_at`, `updated_at`) VALUES
 (16, 'Sports', '2019-08-28 03:31:54', '2019-08-28 03:31:54'),
 (17, 'Islamic', '2019-08-28 03:35:13', '2019-08-28 03:35:13'),
 (18, 'Masjid', '2019-08-28 03:37:35', '2019-08-28 03:37:35'),
-(19, 'React', '2019-08-28 04:05:37', '2019-08-28 04:05:37');
+(19, 'React', '2019-08-28 04:05:37', '2019-08-28 04:05:37'),
+(20, 'Coding', '2019-08-31 09:24:20', '2019-08-31 09:24:20'),
+(21, 'Jahangir', '2019-08-31 10:02:31', '2019-08-31 10:02:31'),
+(22, 'News', '2019-08-31 10:07:36', '2019-08-31 10:07:36'),
+(23, 'new', '2019-09-01 00:51:32', '2019-09-01 00:51:32'),
+(24, 'new Islamic', '2019-09-01 00:54:08', '2019-09-01 00:54:08'),
+(25, 'Zakir Naik', '2019-09-01 03:24:50', '2019-09-01 03:24:50'),
+(26, 'Documentary', '2019-09-01 03:27:41', '2019-09-01 03:27:41'),
+(27, 'Talk Show', '2019-09-01 03:54:38', '2019-09-01 03:54:38'),
+(28, 'Politics', '2019-09-01 03:55:16', '2019-09-01 03:55:16');
 
 -- --------------------------------------------------------
 
@@ -67,18 +76,16 @@ CREATE TABLE `category_video` (
 --
 
 INSERT INTO `category_video` (`id`, `category_id`, `video_id`, `created_at`, `updated_at`) VALUES
-(14, 13, 31, NULL, NULL),
-(15, 14, 31, NULL, NULL),
-(16, 14, 32, NULL, NULL),
-(17, 15, 32, NULL, NULL),
-(18, 15, 33, NULL, NULL),
-(19, 16, 33, NULL, NULL),
-(20, 15, 34, NULL, NULL),
-(21, 17, 34, NULL, NULL),
-(22, 17, 35, NULL, NULL),
-(23, 18, 35, NULL, NULL),
-(24, 19, 36, NULL, NULL),
-(25, 13, 36, NULL, NULL);
+(40, 19, 36, NULL, NULL),
+(41, 13, 36, NULL, NULL),
+(58, 15, 42, NULL, NULL),
+(59, 27, 42, NULL, NULL),
+(60, 28, 42, NULL, NULL),
+(61, 27, 43, NULL, NULL),
+(62, 15, 43, NULL, NULL),
+(63, 15, 44, NULL, NULL),
+(64, 26, 44, NULL, NULL),
+(65, 16, 45, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,8 +165,10 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('96e0fd3a42109a16e29482d8f109be16f68d53c81b8ecd49b1c0110539cdd8980e420be2c5fa9e5e', 3, 1, 'MyApp', '[]', 0, '2019-08-26 03:07:37', '2019-08-26 03:07:37', '2020-08-26 09:07:37'),
 ('a0f0c4fe576c0d9669838b7ca4b41b5616c1f85c7bd6ab50d7b6bdbd97bcf1bbea22978e7e997c20', 3, 1, 'MyApp', '[]', 0, '2019-08-26 20:41:44', '2019-08-26 20:41:44', '2020-08-27 02:41:44'),
 ('a6fe6e41b09317ec9bf3bcc53b4da519fc93f4eba0c2c9deb16fc557164650c27a49b61bc4635299', 3, 1, 'MyApp', '[]', 0, '2019-08-26 08:05:07', '2019-08-26 08:05:07', '2020-08-26 14:05:07'),
+('cb7f8d379c745911485be8ddb2d3639ca2b0d821ba79bed764b64d3f0274f244c8ecf549788e1b58', 3, 1, 'MyApp', '[]', 0, '2019-08-31 07:50:07', '2019-08-31 07:50:07', '2020-08-31 13:50:07'),
 ('cca2897318108967ef796888a0bb684e54eef43351345a4ccdaf1f6ff4cf57ffcc7d201e9617267f', 3, 1, 'MyApp', '[]', 0, '2019-08-28 04:25:51', '2019-08-28 04:25:51', '2020-08-28 10:25:51'),
 ('d2a063eecd229c77bf6efb430315411b765cbdcde02e308b4f52217f2b7ab13ac9928a6047a28852', 3, 1, 'MyApp', '[]', 0, '2019-08-26 02:47:00', '2019-08-26 02:47:00', '2020-08-26 08:47:00'),
+('da95a712de6dcd8161a5c14cc08843ad6a6eb0757cef8f457a1203e73647cfb08597f4c53c4d2dea', 3, 1, 'MyApp', '[]', 0, '2019-08-29 03:08:44', '2019-08-29 03:08:44', '2020-08-29 09:08:44'),
 ('dbb0203c377212fb587e9fce468f2aa62bf3f30f69b203eceb48fc6b109056b149f038474663155e', 3, 1, 'MyApp', '[]', 0, '2019-08-26 02:56:18', '2019-08-26 02:56:18', '2020-08-26 08:56:18'),
 ('dfdbdd7defba53ca903fcff916ece8d9c5083af5f19b0f85c5210f3f468f7f3710911ddd33d37471', 2, 1, 'MyApp', '[]', 0, '2019-08-25 05:28:19', '2019-08-25 05:28:19', '2020-08-25 11:28:19'),
 ('e295caf3afee7ecd097a0c72e239c7fc5859f1a5d140c3db1e11a90afe5bafd1d122637765b0eaf6', 3, 1, 'MyApp', '[]', 0, '2019-08-28 03:07:40', '2019-08-28 03:07:40', '2020-08-28 09:07:40'),
@@ -297,12 +306,11 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `title`, `link`, `created_at`, `updated_at`) VALUES
-(31, 'Laravel', 'https://www.youtube.com/embed/f7quw05phxs', '2019-08-28 00:12:44', '2019-08-28 00:12:44'),
-(32, 'Laravel bangla tutorial', 'https://www.youtube.com/embed/stF1tQ7-Jc', '2019-08-28 03:22:03', '2019-08-28 03:22:03'),
-(33, 'Sports News Ekattor TV', 'https://www.youtube.com/embed/UDmq8lPWbjo', '2019-08-28 03:31:54', '2019-08-28 03:31:54'),
-(34, 'Islamic lecture Addullah Jahangir', 'https://www.youtube.com/embed/2-c1q7h9Uc4', '2019-08-28 03:35:13', '2019-08-28 03:35:13'),
-(35, 'Islamic lecture Addullah Saifullah', 'https://www.youtube.com/embed/n1eOqiLeXcM', '2019-08-28 03:37:35', '2019-08-28 03:37:35'),
-(36, 'What is React', 'https://www.youtube.com/embed/N3AkSS5hXMA', '2019-08-28 04:05:37', '2019-08-28 04:05:37');
+(36, 'What is React e', 'https://www.youtube.com/embed/N3AkSS5hXMA', '2019-08-28 04:05:37', '2019-08-28 04:05:37'),
+(42, 'Bangla Tv talk show Edited', 'https://www.youtube.com/embed/9s29lKO9rFU', '2019-09-01 03:54:38', '2019-09-01 03:54:38'),
+(43, 'Dbc news talk show', 'https://www.youtube.com/embed/8j-OfWvpVP0', '2019-09-01 03:57:11', '2019-09-01 03:57:11'),
+(44, 'Life struggles of shepherds at Bathan', 'https://www.youtube.com/embed/Adazw-c7JXg', '2019-09-01 03:58:01', '2019-09-01 03:58:01'),
+(45, 'Cristiano Ronaldo', 'https://www.youtube.com/embed/2mh_ZICm-EU', '2019-09-01 03:59:04', '2019-09-01 03:59:04');
 
 --
 -- Indexes for dumped tables
@@ -387,13 +395,13 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `category_video`
 --
 ALTER TABLE `category_video`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -423,7 +431,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
